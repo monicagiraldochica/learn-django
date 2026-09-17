@@ -1,0 +1,5 @@
+source /Users/mkeith/Documents/GitHub/intro-to-django/.venv/bin/activate
+django-admin startproject dj_test_mk
+cd dj_test_mk/
+python manage.py runserver
+python manage.py createsuperuser
