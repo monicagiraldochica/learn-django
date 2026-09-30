@@ -6,3 +6,15 @@ python manage.py createsuperuser
 source /Users/mkeith/Documents/GitHub/intro-to-django/.venv/bin/activate
 cd dj_test_mk/
 python manage.py startapp visits
+After changing something in the models.py file in an app that's been registered in the settings as an installed app, we need to create a new migration file:
+python manage.py makemigrations
+When those migrations are applied, SQL runs some commands on the DB
+python manage.py migrate
+then we can add models to the DB:
+python manage.py shell
+import your visits model:
+>>> from visits.models import Visits
+create a Visits object and save in the DB in one line:
+>>> v = Visits.objects.create()
+check the current count value
+>>> v.count
