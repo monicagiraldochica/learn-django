@@ -5,6 +5,8 @@ python manage.py runserver
 python manage.py createsuperuser
 source /Users/mkeith/Documents/GitHub/intro-to-django/.venv/bin/activate
 cd dj_test_mk/
+python manage.py runserver
+
 python manage.py startapp visits
 After changing something in the models.py file in an app that's been registered in the settings as an installed app, we need to create a new migration file:
 python manage.py makemigrations
