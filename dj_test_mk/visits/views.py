@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from random import randint
 
 def index(request):
-    return render(request, "index.html")
+    context = {
+        "num_visits": randint(1, 10)
+    }
+    return render(request, "index.html", context=context)
