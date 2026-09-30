@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from random import randint
+from .models import Visits
 
 def index(request):
-    context = {
-        "num_visits": randint(1, 10)
-    }
+    v = Visits.objects.first()
+    v.count+=1
+    v.save()
+    context = {"num_visits": v.count}
     return render(request, "index.html", context=context)
