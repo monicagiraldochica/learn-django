@@ -6,7 +6,7 @@ from django.http import HttpRequest
 # an HttpRequest object has: user (anonymous if not authenticated), body, method (get/post), heathers, url
 # A view function always returns an HttpResponse object
 # an HttpResponse has: status_code, content, metadata
-def index(request: HttpRequest):
+def index(request: HttpRequest, page: str=""):
     v = Visit(page="")
     if request.user.is_authenticated:
         v.username = request.user.username
