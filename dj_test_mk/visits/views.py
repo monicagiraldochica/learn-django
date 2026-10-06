@@ -14,6 +14,10 @@ def index(request: HttpRequest, page: str=""):
     v.save()
 
     visitors = Visit.objects.filter(page=page)
-    context = {"num_visits": visitors.count()}
+    context = {
+        "page": page,
+        "visitors": visitors,
+        "num_visits": visitors.count()
+        }
 
     return render(request, "index.html", context=context)
