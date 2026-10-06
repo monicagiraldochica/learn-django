@@ -6,13 +6,14 @@ from django.http import HttpRequest
 # an HttpRequest object has: user (anonymous if not authenticated), body, method (get/post), heathers, url
 # A view function always returns an HttpResponse object
 # an HttpResponse has: status_code, content, metadata
+# index will be an empty string but other pages will have a string for page
 def index(request: HttpRequest, page: str=""):
-    v = Visit(page="")
+    v = Visit(page=page)
     if request.user.is_authenticated:
         v.username = request.user.username
     v.save()
 
-    visitors = Visit.objects.filter(page="")
+    visitors = Visit.objects.filter(page=page)
     context = {"num_visits": visitors.count()}
 
     return render(request, "index.html", context=context)
